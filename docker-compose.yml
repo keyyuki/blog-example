@@ -11,9 +11,9 @@ services:
       - 3306:3306
   app:
     build:
-    context: ./
-    args:
-      NODE_ENV: development
+      context: ./
+      args:
+        NODE_ENV: development
     volumes:
       - .:/usr/src/app/
     ports:
