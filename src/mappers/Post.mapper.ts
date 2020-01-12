@@ -14,8 +14,6 @@ interface ResultSet {
   paginator: Paginator;
 }
 export default class PostMapper {
-  TABLE_NAME = 'posts';
-
   async search(filter: object, options: object): Promise<ResultSet> {
     let query = adapter<Post>(`${tableNames.POST} as p`);
     if (get(filter, 'q')) {
@@ -48,5 +46,15 @@ export default class PostMapper {
       currentPage: page,
       totalPages: totalItems ? Math.ceil(totalItems / icpp) : 0,
     };
+  }
+
+  async getOne(id: number): Promise<Post | null> {
+    const row = await adapter<Post>(tableNames.POST)
+      .where('id', id)
+      .first();
+    if (row) {
+      return row;
+    }
+    return null;
   }
 }

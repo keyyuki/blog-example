@@ -1,8 +1,9 @@
 import { Router } from 'express';
 import ServiceManage from '../services';
+import postRoute from './post.route';
 
 const route = Router();
-
+route.use(postRoute);
 route.get('/', async (req, res) => {
   const resultSet = await ServiceManage.PostMapper.search(
     {},
