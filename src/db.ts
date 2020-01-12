@@ -4,10 +4,10 @@ const adapter = knex({
   client: 'mysql',
   connection: {
     host: process.env.DATABASE_HOST,
-    port: parseInt(process.env.DATABASE_PORT || '8080'),
+    port: parseInt(process.env.DATABASE_PORT || '3306'),
     user: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_NAME,
   },
 });
-module.exports = adapter;
+export default adapter;

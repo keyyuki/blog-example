@@ -2,7 +2,7 @@ import * as express from 'express';
 import * as cors from 'cors';
 import * as bodyParser from 'body-parser';
 import * as path from 'path';
-import * as createError from 'http-errors';
+//import * as createError from 'http-errors';
 //import jwtAuth from './middleware/jwt-auth';
 //import authGuard from './middleware/auth-guard';
 
@@ -35,8 +35,7 @@ app.use('/', routes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  //@TODO render 404 page
-  next(createError(404));
+  res.render('404page');
 });
 
 // error handler
